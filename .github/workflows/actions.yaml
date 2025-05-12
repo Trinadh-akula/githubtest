@@ -9,20 +9,25 @@ jobs:
   psalm-security-scan:
     name: Psalm
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Psalm – Security Scanner for PHP
-        uses: psalm/psalm-github-security-scan@1.4.0
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2' # Match your project’s PHP version
+          extensions: soap, gd, zip # Add any required extensions
 
-      - name: installing updates
-        run: |
-          sudo apt-get update
-          sudo apt-get install php-soap php-gd php-zip
+      - name: Install Composer dependencies
+        run: composer install --no-scripts --no-progress --prefer-dist
 
-        
-      - name: Import Security Analysis results into GitHub Security Code Scanning
+      - name: Run Psalm with SARIF output
+        run: vendor/bin/psalm --output-format=sarif --report=results.sarif
+
+      - name: Upload SARIF to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: results.sarif
+
