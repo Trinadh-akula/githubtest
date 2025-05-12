@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Psalm Security Scan
-        uses: docker://ghcr.io/psalm/psalm-security-scan
+      - name: Psalm – Security Scanner for PHP
+        uses: psalm/psalm-github-security-scan@1.4.0
         
       - name: Import Security Analysis results into GitHub Security Code Scanning
         uses: github/codeql-action/upload-sarif@v2
