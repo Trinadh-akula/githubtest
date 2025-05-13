@@ -23,4 +23,5 @@ jobs:
           args: >
              -Dsonar.organization=Trinadh-akula
              -Dsonar.projectKey=githubtest
+             -Dsonar.branch.name=main
              -Dsonar.verbose=true
