@@ -16,8 +16,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v4
         env: 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          SONAR_PROJECTKEY: githubtest \
-#          SONAR_ORGANIZATION: Trinadh-akula
+          SONAR_PROJECTKEY: githubtest 
+          SONAR_ORGANIZATION: Trinadh-akula
         with:
           projectBaseDir: /home/runner/work/githubtest/githubtest
           args: >
