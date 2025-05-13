@@ -22,6 +22,6 @@ jobs:
           projectBaseDir: /home/runner/work/githubtest/githubtest
           args: >
              -Dsonar.organization=Trinadh-akula
-             -Dsonar.projectKey=githubtest
+          -Dsonar.projectKey=trinadh-akula_githubtest
              -Dsonar.branch.name=main
              -Dsonar.verbose=true
