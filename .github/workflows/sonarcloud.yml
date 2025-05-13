@@ -19,4 +19,4 @@ jobs:
           SONAR_PROJECTKEY: trinadh-akula \
           SONAR_ORGANIZATION: Trinadh-akula
         with:
-          projectBaseDir: ./
+          projectBaseDir: /home/runner/work/githubtest/githubtest
