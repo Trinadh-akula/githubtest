@@ -1,0 +1,27 @@
+name: My Test Single Project
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sonarqube:
+    name: SonarQube
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  
+      - name: SonarQubeScan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env: 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECTKEY: githubtest 
+          SONAR_ORGANIZATION: Trinadh-akula
+        with:
+          projectBaseDir: /home/runner/work/githubtest/githubtest
+          args: >
+             -Dsonar.organization=Trinadh-akula
+             -Dsonar.projectKey=trinadh-akula_githubtest
+             -Dsonar.branch.name=main
+             -Dsonar.verbose=true
