@@ -1,0 +1,44 @@
+name: Test pipeline to review runner size
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  testbuild:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checking the cpu version
+        run: |
+          echo "                 nproc           "
+          nproc
+          echo "                 ls cpu          "
+          lscpu | grep '^CPU(s):'
+
+      - name: checking the total ram size 
+        run: |
+          echo "                free -h | grep Mem | awk '{print $2}'             "
+          free -h | grep Mem | awk '{print $2}'
+          echo "                cat /proc/meminfo | grep MemTotal                 "
+          cat /proc/meminfo | grep MemTotal
+          echo "                free -h | grep Mem | awk '{print $3}'             "
+          free -h | grep Mem | awk '{print $3}'
+          echo "                cat /proc/meminfo | grep MemAvailable             "
+          cat /proc/meminfo | grep MemAvailable
+          
+
+      - name: check the node version 
+        run: |
+          echo " Node js version    "
+          node -v
+          echo "  NPM version  "
+          npm -v
+          echo " cloning the sample github repo to test"
+          git clone https://github.com/nodejs/examples.git
+          ls
+          cd examples/
+          npm pack
+          ls -la
+
