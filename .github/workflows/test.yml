@@ -3,7 +3,7 @@ name: Test pipeline to review runner size
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   testbuild:
