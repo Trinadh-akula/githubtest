@@ -58,7 +58,7 @@ jobs:
         git config --global user.name "Trinadh-akula"
         git config --global user.email "akulatrinadh@gmail.com"
         git config --global credential.helper "store --file=.git-credentials"
-        echo "https://${{ secrets.GITHUB_TOKEN }}:@github.com" > .git-credentials
+      echo "https://${{ secrets.TOKEN_GITHUB }}:@github.com" > .git-credentials
         git clone https://github.com/Trinadh-akula/nodered.git
 
 
