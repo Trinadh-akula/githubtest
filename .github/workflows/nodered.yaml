@@ -59,7 +59,7 @@ jobs:
         git config --global user.email "akulatrinadh@gmail.com"
         git config --global credential.helper "store --file=.git-credentials"
         echo "https://${{ secrets.TOKEN_GITHUB }}:@github.com" > .git-credentials
-        git clone https://github.com/Trinadh-akula/nodered.git
+        git clone https://github.com/Trinadh-akula/githubtest.git
 
 
     # Add any setup steps before running the `github/codeql-action/init` action.
