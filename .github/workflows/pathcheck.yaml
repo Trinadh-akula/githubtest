@@ -1,0 +1,29 @@
+name: Show Checkout Path
+
+on:
+  workflow_dispatch:
+    # Allows manual triggering from the Actions tab
+  push:
+    branches:
+      - main
+
+jobs:
+  show-path:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show GITHUB_WORKSPACE
+        run: echo "GITHUB_WORKSPACE is: $GITHUB_WORKSPACE"
+
+      - name: Show current working directory
+        run: |
+          echo "Current directory:"
+          pwd
+
+      - name: List contents of workspace
+        run: |
+          echo "Contents of workspace:"
+          ls -la $GITHUB_WORKSPACE
